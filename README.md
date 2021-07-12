@@ -14,7 +14,7 @@ This project is available as a [Streamlit](http://streamlit.io/)-powered web app
 ## Dataset
 
 This app was trained using parts of the "Food-101 Data Set".
-For more information usingut it, please refer to the 
+For more information, please refer to the 
 [original publication](https://data.vision.ee.ethz.ch/cvl/datasets_extra/food-101/).
 
 > Bossard, L., Guillaumin, M., & Van Gool, L. (2014). Food-101 – Mining Discriminative Components with Random Forests. In European Conference on Computer Vision.
