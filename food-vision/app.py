@@ -8,8 +8,12 @@ import tensorflow as tf
 from utils import load_and_prep_image, classes_and_models, update_logger, predict_json
 
 # Setup environment credentials
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "key.json"
-PROJECT = "patrick-dl-playground"
+
+os.environ[
+    "GOOGLE_APPLICATION_CREDENTIALS"
+] = "patrick-dl-playground-319315-514081c5d855.json"
+
+PROJECT = "patrick-dl-playground-319315"
 REGION = "us-central1"
 
 st.title("Welcome to Food Vision 🍔📸")
@@ -42,8 +46,6 @@ choose_model = st.sidebar.selectbox(
     "Pick model you'd like to use",
     (
         "Model 1 (10 food classes)",  # original 10 classes
-        "Model 2 (11 food classes)",  # original 10 classes + donuts
-        "Model 3 (11 food classes + non-food class)",
     ),  # 11 classes (same as above) + not_food class
 )
 
@@ -51,12 +53,6 @@ choose_model = st.sidebar.selectbox(
 if choose_model == "Model 1 (10 food classes)":
     CLASSES = classes_and_models["model_1"]["classes"]
     MODEL = classes_and_models["model_1"]["model_name"]
-elif choose_model == "Model 2 (11 food classes)":
-    CLASSES = classes_and_models["model_2"]["classes"]
-    MODEL = classes_and_models["model_2"]["model_name"]
-else:
-    CLASSES = classes_and_models["model_3"]["classes"]
-    MODEL = classes_and_models["model_3"]["model_name"]
 
 # Display info about model and classes
 if st.checkbox("Show classes"):

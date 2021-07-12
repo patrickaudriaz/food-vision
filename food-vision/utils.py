@@ -19,15 +19,7 @@ base_classes = [
 classes_and_models = {
     "model_1": {
         "classes": base_classes,
-        "model_name": "efficientnet_model_1_10_classes_us",
-    },
-    "model_2": {
-        "classes": sorted(base_classes + ["donut"]),
-        "model_name": "efficientnet_model_2_11_classes",
-    },
-    "model_3": {
-        "classes": sorted(base_classes + ["donut", "not_food"]),
-        "model_name": "efficientnet_model_3_12_classes",
+        "model_name": "efficientnet_model_1_10_classes",
     },
 }
 
@@ -44,7 +36,7 @@ def predict_json(project, region, model, instances, version=None):
             convertible to Tensors.
         version (str): version of the model to target.
     Returns:
-        Mapping[str: any]: dictionary of prediction results defined by the 
+        Mapping[str: any]: dictionary of prediction results defined by the
             model.
     """
     # Create the ML Engine service object
@@ -84,9 +76,9 @@ def predict_json(project, region, model, instances, version=None):
 # Create a function to import an image and resize it to be able to be used with our model
 def load_and_prep_image(filename, img_shape=224, rescale=False):
     """
-  Reads in an image from filename, turns it into a tensor and reshapes into
-  (224, 224, 3).
-  """
+    Reads in an image from filename, turns it into a tensor and reshapes into
+    (224, 224, 3).
+    """
     # Decode it into a tensor
     #   img = tf.io.decode_image(filename) # no channels=3 means model will break for some PNG's (4 channels)
     img = tf.io.decode_image(
@@ -105,7 +97,7 @@ def update_logger(
     image, model_used, pred_class, pred_conf, correct=False, user_label=None
 ):
     """
-    Function for tracking feedback given in app, updates and reutrns 
+    Function for tracking feedback given in app, updates and reutrns
     logger dictionary.
     """
     logger = {
